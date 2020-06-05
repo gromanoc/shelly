@@ -1,0 +1,385 @@
+/****************************************
+*    Variables
+*****************************************/
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --link: #0000ee;
+  --hover: #551a8b;
+  --font-family: "Roboto", sans-serif;
+}
+
+/****************************************
+*    Base
+*****************************************/
+html {
+  height: 100%;
+}
+
+body {
+  color: var(--black);
+  background: var(--white);
+  font-size: 100%;
+  font-size: calc(16px + (19 - 16) * ((100vw - 640px) / (1400 - 640)));
+  font-family: var(--font-family);
+}
+
+a {
+  text-decoration: none;
+  color: var(--black);
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+a:active,
+a:hover {
+  color: var(--hover);
+  text-decoration: underline;
+}
+
+ul {
+  padding-left: 0;
+}
+
+h2 {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+/****************************************
+*    Common
+*****************************************/
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr max-content;
+  height: 100vh;
+}
+
+.intro {
+  max-width: 1.6em;
+  height: 100%;
+  margin: 0 auto;
+  padding: 1em 0 0;
+  font-size: 11em;
+  font-weight: bold;
+  line-height: 0.8;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.header {
+  margin: 1.2em auto 0;
+}
+
+.nombre {
+  font-size: 2em;
+  font-weight: bolder;
+}
+
+.header p {
+  font-size: 1.3em;
+  line-height: 1.5;
+  padding-top: 0.5em;
+}
+
+.nav {
+  justify-self: center;
+}
+
+.nav-icon {
+  position: absolute;
+  right: 34px;
+}
+
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-icon {
+  display: none;
+}
+
+.menu li {
+  padding-left: 1em;
+  margin-bottom: 2em;
+}
+
+@media screen and (min-width: 40em) {
+  .container {
+    grid-template-columns: 80px 1fr 1fr 100px;
+    grid-template-rows: 100px 1.5fr 1fr;
+    grid-column-gap: 1em;
+  }
+
+  .intro {
+    width: 100%;
+    height: max-content;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    margin: 0 0 0 auto;
+    padding: 0;
+    align-self: end;
+  }
+
+  .header {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    margin: 0;
+    padding: 0;
+    align-self: end;
+  }
+
+  .nav {
+    grid-column: 4 / 5;
+    grid-row: 1 / 4;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-icon {
+    display: block;
+    position: absolute;
+    top: 5vh;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .menu.open {
+    display: block;
+    writing-mode: vertical-lr;
+    margin: auto;
+    margin-top: 15vh;
+  }
+
+  .menu li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 3em;
+  }
+}
+
+/****************************************
+*    Sobre mi
+*****************************************/
+.intro-sobre-mi {
+  max-width: 70vw;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0.5em 0 0.2em;
+  font-size: 10em;
+  font-weight: bold;
+  line-height: 0.8;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.sobre-mi {
+  max-width: 73vw;
+  margin: 0 auto 2em;
+}
+
+@media screen and (min-width: 40em) {
+  .intro-sobre-mi {
+    width: 100%;
+    height: max-content;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    margin: 0 0 0 auto;
+    padding: 0;
+    font-size: 11em;
+    align-self: end;
+    max-width: 700px;
+    transform: translate(100px, -100px);
+  }
+
+  .sobre-mi {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/****************************************
+*    Proyectos
+*****************************************/
+.proyectos {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 90vw;
+  margin: 10vh auto 0;
+}
+
+.intro-proyectos {
+  max-width: 2.4em;
+  height: 100%;
+  font-size: 10em;
+  font-weight: bold;
+  line-height: 0.8;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.proyectos-container {
+  display: block;
+  width: max-content;
+  margin: 2em auto;
+}
+
+.proyectos .nav .menu {
+  margin-top: 2em;
+  height: max-content;
+}
+
+@media screen and (min-width: 40em) {
+  .proyectos {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 90vw;
+    margin: 18vh auto 0;
+  }
+
+  .proyectos > *:nth-child(-n + 2) {
+    flex: 1;
+  }
+
+  .proyectos > *:first-child {
+    margin: 0 0 0 auto;
+  }
+
+  .proyectos > *:nth-child(2) {
+    margin: 0 auto 0 0;
+  }
+
+  .proyectos .nav .menu {
+    max-width: 30px;
+    margin: 0;
+    padding: 0;
+    transform: translateX(16px);
+    margin-top: -1em;
+  }
+
+  .intro-proyectos {
+    max-width: 2.4em;
+    height: 100%;
+    font-size: 10em;
+    font-weight: bold;
+    line-height: 0.8;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    overflow-wrap: break-word;
+  }
+
+  .proyectos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    max-width: 480px;
+    max-height: 480px;
+  }
+}
+
+/****************************************
+*    Proyecto
+*****************************************/
+.proyecto {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.proyecto header {
+  height: auto;
+  margin: 0;
+}
+
+.proyecto #proyecto-img {
+  margin: 0;
+}
+
+.arrow-left {
+  position: absolute;
+  top: 0;
+}
+
+@media screen and (min-width: 40em) {
+  .proyecto {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    height: 100%;
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  .proyecto header {
+    align-self: end;
+    height: 50%;
+    grid-column: 1 / 2;
+  }
+
+  .proyecto #proyecto-img {
+    align-self: center;
+    justify-self: center;
+    grid-column: 3 / 4;
+  }
+
+  .arrow-left {
+    grid-column: 2 / 3;
+    align-self: center;
+    height: 100%;
+  }
+}
+
+/****************************************
+*    Contacto
+*****************************************/
+.intro-contacto {
+  max-width: 2.4em;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0.5em 0 0.2em;
+  font-size: 11em;
+  font-weight: bold;
+  line-height: 0.8;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.contacto {
+  max-width: 73vw;
+  margin: 0 auto 2em;
+}
+
+.contacto a {
+  display: block;
+}
+
+@media screen and (min-width: 40em) {
+  .intro-contacto {
+    width: 100%;
+    height: max-content;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    margin: 0 0 0 auto;
+    padding: 0;
+    align-self: end;
+  }
+
+  .contacto {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
